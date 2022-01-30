@@ -1,7 +1,7 @@
   {{ containter_name }}:
-    image: prom/alertmanager:latest
+    image: ccrisan/motioneye:master-armhf
     ports:
-      - {{ containter_expose_port }}:9093
+      - :9093
     volumes:
       - /var/docker-compose/data/alertmanager/:/etc/alertmanager/
     restart: always

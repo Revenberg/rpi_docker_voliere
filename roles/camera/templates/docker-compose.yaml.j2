@@ -1,0 +1,13 @@
+  {{ containter_name }}:
+    image: ccrisan/motioneye:master-armhf
+    ports:
+      - {{ containter_expose_port }}:8765
+      - 465:465 
+      - 587:587
+      - 8081:8081
+    volumes:
+      - /var/docker-compose/data/motioneye/:/etc/motioneye
+    restart: always
+    command:
+      - '--device=/dev/video0'
+      
