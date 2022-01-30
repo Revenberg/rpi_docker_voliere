@@ -1,13 +1,8 @@
   {{ containter_name }}:
-    image: ccrisan/motioneye:master-armhf
+    image: mhamanaka/rpi-mjpg-streamer-uvc:0.1
     ports:
-      - {{ containter_expose_port }}:8765
-      - 465:465 
-      - 587:587
-      - 8081:8081
-    volumes:
-      - /var/docker-compose/data/motioneye/:/etc/motioneye
+      - 8080:80
     restart: always
     devices:
-      - /dev/video0:/dev/video0
+      - /dev:/dev
       
