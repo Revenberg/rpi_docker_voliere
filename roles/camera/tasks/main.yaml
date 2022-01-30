@@ -1,4 +1,8 @@
 ---
+- name: current date time
+  debug:
+    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
+
 - name: Add a line to a file if the file does not exist, without passing regexp
   lineinfile:
     path: /boot/config.txt
