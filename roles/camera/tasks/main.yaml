@@ -2,7 +2,7 @@
 - name: Add a line to a file if the file does not exist, without passing regexp
   lineinfile:
     path: /boot/config.txt
-    line: "start_x=1             # essential"
+    line: "{{ item }}"
     create: yes
   with_items:
     - start_x=1             # essential
