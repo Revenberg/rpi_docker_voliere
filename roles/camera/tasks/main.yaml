@@ -8,3 +8,16 @@
     - start_x=1             # essential
     - gpu_mem=128           # at least, or maybe more if you wish
     - disable_camera_led=0  # optional, if you don't want the led to glow
+
+- name: create /var/docker-compose/motioneye
+  file:
+    path: "{{  item }}"
+    recurse: yes
+    mode: 0755
+    owner: pi
+    group: pi
+  with_items:         
+  - "/var/docker-compose/data/motioneye"
+
+- name: add to docker-compose
+  include_tasks: docker-compose.yaml
