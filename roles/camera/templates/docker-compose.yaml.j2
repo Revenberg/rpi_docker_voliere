@@ -1,7 +1,7 @@
   {{ containter_name }}:
     image: mhamanaka/rpi-mjpg-streamer-uvc:0.1
     ports:
-      - 8080:80
+      - 80:8080
     restart: always
     devices:
       - /dev/video0:/dev/video0
