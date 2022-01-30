@@ -8,6 +8,6 @@
     volumes:
       - /var/docker-compose/data/motioneye/:/etc/motioneye
     restart: always
-    command:
-      - '--device=/dev/video0'
+    devices:
+      /dev/video0:/dev/video0
       
