@@ -1,0 +1,18 @@
+  mqtt2influxdb:
+    image: revenberg/mqtt2influxdb:latest
+    container_name: mqtt2influxdb
+    restart: always
+    env_file:
+      - '/var/docker-compose/data/mqtt2influxdb/env.mqtt2influxdb'
+    environment:
+      - LOG_LEVEL=WARN
+      - MQTT_ADDRESS={{ ip_address }}
+      - MQTT_TOPIC=reading/#
+      - INFLUXDB_ADDRESS={{ ip_address }}
+      - INFLUXDB_PORT=8086
+    depends_on:
+      - mqtt
+      - influxdb
+    links:
+      - mqtt
+      - influxdb
