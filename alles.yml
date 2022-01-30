@@ -7,7 +7,7 @@
 
   roles: 
   - role: docker_local
-
+  - role: camera
   - role: docker
   
   - role: docker_compose  
