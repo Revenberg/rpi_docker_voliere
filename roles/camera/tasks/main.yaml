@@ -1,14 +1,10 @@
 ---
-- name: current date time
-  debug:
-    msg: "{{lookup('pipe','date \"+%Y-%m-%d %H:%M\"')}}"
-
 - name: Add a line to a file if the file does not exist, without passing regexp
   lineinfile:
     path: /boot/config.txt
     line: "start_x=1             # essential"
     create: yes
-#  with_item:
-#    - start_x=1             # essential
-#    - gpu_mem=128           # at least, or maybe more if you wish
-#    - disable_camera_led=0  # optional, if you don't want the led to glow
+  with_items:
+    - start_x=1             # essential
+    - gpu_mem=128           # at least, or maybe more if you wish
+    - disable_camera_led=0  # optional, if you don't want the led to glow
